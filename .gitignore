@@ -1,0 +1,16 @@
+# env files
+.env*
+
+# persistent data
+data/
+.session-secret
+
+# python
+__pycache__/
+*.pyc
+
+# temp
+
+# frontend build artifacts
+dashboard/dist/
+**/node_modules/

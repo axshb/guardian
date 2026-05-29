@@ -1,0 +1,15 @@
+services:
+  gallery-guard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gallery-guard
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./data:/app/data
+    environment:
+      PORT: "8082"
+      DB_PATH: /app/data/assets.db
+      DATA_PATH: /app/data
+    restart: unless-stopped
