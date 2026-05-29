@@ -4,11 +4,11 @@ const routes = [
   { path: '/', component: () => import('./views/LoginView.vue') },
   { path: '/setup', component: () => import('./views/SetupView.vue') },
   {
-    path: '/admin',
+    path: '/',
     component: () => import('./components/AdminLayout.vue'),
     meta: { requiresAuth: true },
     children: [
-      { path: '', redirect: '/admin/assets' },
+      { path: '', redirect: '/assets' },
       { path: 'assets', component: () => import('./views/AssetsView.vue') },
       { path: 'assets/:album', component: () => import('./views/AlbumView.vue') },
       { path: 'referrers', component: () => import('./views/ReferrersView.vue') },

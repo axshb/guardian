@@ -88,7 +88,7 @@ async function copyUrl(img: Image) {
 <template>
   <div class="space-y-8">
     <div>
-      <router-link to="/admin/assets" class="inline-flex items-center gap-1 text-sm text-primary hover:text-foreground transition-colors">
+      <router-link to="/assets" class="inline-flex items-center gap-1 text-sm text-primary hover:text-foreground transition-colors">
         <ChevronLeft :size="14" />
         Back to Assets
       </router-link>

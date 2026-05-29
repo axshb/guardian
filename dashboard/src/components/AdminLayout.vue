@@ -12,9 +12,9 @@ const auth = useAuthStore();
 const mobileOpen = ref(false);
 
 const navItems = [
-  { name: 'assets', href: '/admin/assets', icon: Image },
-  { name: 'referrers', href: '/admin/referrers', icon: Shield },
-  { name: 'settings', href: '/admin/settings', icon: Palette },
+  { name: 'assets', href: '/assets', icon: Image },
+  { name: 'referrers', href: '/referrers', icon: Shield },
+  { name: 'settings', href: '/settings', icon: Palette },
 ];
 
 function isActive(href: string) {

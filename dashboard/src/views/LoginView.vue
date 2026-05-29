@@ -34,7 +34,7 @@ async function handleSubmit() {
       body: JSON.stringify({ password: password.value }),
     });
     if (res.ok) {
-      router.push('/admin/assets');
+      router.push('/assets');
     } else {
       const data = await res.json();
       error.value = data.detail || 'Invalid password.';

@@ -215,7 +215,7 @@ async function handleRedirectUpdate() {
           <router-link
             v-for="a in detailDomain?.albums"
             :key="a.album"
-            :to="`/admin/assets/${encodeURIComponent(a.album)}`"
+            :to="`/assets/${encodeURIComponent(a.album)}`"
             class="block bg-background border border-border p-3 hover:border-primary/50 transition-colors rounded-lg"
           >
             <div class="text-primary text-xs mb-1">{{ a.album }}</div>

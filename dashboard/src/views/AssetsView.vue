@@ -105,7 +105,7 @@ async function onReorder(newList: AlbumInfo[]) {
         class="group relative border border-border hover:border-primary/50 rounded-xl transition-all cursor-grab active:cursor-grabbing"
       >
         <Card class="border-0 bg-transparent overflow-hidden rounded-xl">
-          <router-link :to="`/admin/assets/${encodeURIComponent(a.album)}`" class="block">
+          <router-link :to="`/assets/${encodeURIComponent(a.album)}`" class="block">
             <div class="aspect-square bg-background relative">
               <img v-if="a.cover" :src="assetUrl(a.cover, a.coverContentType)" class="w-full h-full object-cover" alt="" draggable="false" />
               <div v-else class="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
@@ -114,7 +114,7 @@ async function onReorder(newList: AlbumInfo[]) {
             </div>
           </router-link>
           <div class="flex items-center justify-between px-4 py-3">
-            <router-link :to="`/admin/assets/${encodeURIComponent(a.album)}`" class="min-w-0">
+            <router-link :to="`/assets/${encodeURIComponent(a.album)}`" class="min-w-0">
               <div class="text-sm text-foreground font-medium truncate">{{ a.album }}</div>
               <div class="text-xs text-muted-foreground mt-0.5">{{ a.count }} images</div>
             </router-link>
