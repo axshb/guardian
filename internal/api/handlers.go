@@ -53,7 +53,6 @@ func (h *Handler) RegisterRoutes(r chi.Router, adminMdw func(http.Handler) http.
 		r.Post("/api/referrers/forget", h.forgetDomain)
 		r.Put("/api/albums/{album}/reorder", h.reorderImages)
 		r.Put("/api/albums/reorder", h.reorderAlbums)
-		r.Get("/api/tools", h.tools)
 	})
 }
 
@@ -382,74 +381,4 @@ func (h *Handler) reorderAlbums(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.WriteHeader(http.StatusNoContent)
-}
-
-// tools returns the tool catalog for agent discovery.
-func (h *Handler) tools(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(map[string]any{
-		"tools": []ToolMeta{
-			{
-				Name:        "get_albums",
-				Description: "List all albums in the gallery. No arguments required.",
-				Endpoint:    "/api/albums",
-				Method:      "GET",
-				AdminOnly:   true,
-				Args:        []ToolArg{},
-			},
-			{
-				Name:        "get_album_images",
-				Description: "List all images in a specific album. Argument: album (string).",
-				Endpoint:    "/api/albums/{album}/images",
-				Method:      "GET",
-				AdminOnly:   true,
-				Args: []ToolArg{
-					{Name: "album", Type: "string", Required: true},
-				},
-			},
-			{
-				Name:        "import_images",
-				Description: "Import a batch of image URLs into an album. Arguments: album (string), urls (array of strings).",
-				Endpoint:    "/api/albums",
-				Method:      "POST",
-				AdminOnly:   true,
-				Args: []ToolArg{
-					{Name: "album", Type: "string", Required: true},
-					{Name: "urls", Type: "array", Required: true},
-				},
-			},
-		},
-	})
-}
-
-// ToolMeta describes a callable tool for the agent.
-type ToolMeta struct {
-	Name        string    `json:"name"`
-	Description string    `json:"description"`
-	Endpoint    string    `json:"endpoint"`
-	Method      string    `json:"method"`
-	AdminOnly   bool      `json:"admin_only"`
-	Args        []ToolArg `json:"args"`
-}
-
-// ToolArg is a single argument definition.
-type ToolArg struct {
-	Name     string `json:"name"`
-	Type     string `json:"type"`
-	Required bool   `json:"required"`
-}
-
-// jsonError sends a structured error response.
-func jsonError(w http.ResponseWriter, status int, msg string) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	_ = json.NewEncoder(w).Encode(map[string]string{"error": msg})
-}
-
-// writeJSON encodes v as JSON and handles errors.
-func writeJSON(w http.ResponseWriter, v any) {
-	w.Header().Set("Content-Type", "application/json")
-	if err := json.NewEncoder(w).Encode(v); err != nil {
-		log.Printf("encode json: %v", err)
-	}
 }
