@@ -2,13 +2,13 @@
 
 ### Features
 
-- **Image Gallery** — Create albums, bulk import images from URLs, drag-and-drop reordering.
-- **Asset Proxy** — Images are proxied through the server with automatic view tracking.
-- **Referrer Analytics** — See which domains are viewing your images, with per-asset breakdowns.
-- **Domain Firewall** — Ban/unban/forget referrer domains; set a redirect image for banned domains.
-- **Secure Auth** — bcrypt-hashed passwords with signed HMAC session cookies (no server-side store).
-- **Theme Support** — 12 selectable color schemes (Gruvbox, Nord, Catppuccin, Tokyo Night, etc.).
-- **Setup Wizard** — First-boot guided setup: create admin password, pick theme (hot-swappable).
+- **Image Gallery:** Create albums, bulk import images from URLs, drag-and-drop reordering.
+- **Asset Proxy:** Images are proxied through the server with automatic view tracking.
+- **Referrer Analytics:** See which domains are viewing your images, with per-asset breakdowns.
+- **Domain Firewall:** Ban/unban/forget referrer domains; set a redirect image for banned domains.
+- **Secure Auth:** bcrypt-hashed passwords with signed HMAC session cookies (no server-side store).
+- **Theme Support:** 12 selectable color schemes (Gruvbox, Nord, Catppuccin, Tokyo Night, etc.).
+- **Setup Wizard:** First-boot guided setup: create admin password, pick theme (hot-swappable).
 
 ### Tech stack
 
