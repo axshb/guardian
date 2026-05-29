@@ -1,9 +1,9 @@
 services:
-  gallery-guard:
+  guardian:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: gallery-guard
+    container_name: guardian
     ports:
       - "8082:8082"
     volumes:
